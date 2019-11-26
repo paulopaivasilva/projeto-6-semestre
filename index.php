@@ -1,5 +1,5 @@
 <?php
-    $sessao = true;
-    if($sessao) header('Location: ./Login.php');
-    else header('Location: ./Home.php');
+    $sessao = false;
+    if(!$sessao) header('Location: ./login.html');
+    else header('Location: ./home.php');
 ?>
