@@ -3,7 +3,7 @@
 ?>
 <div class="content text-left">
     <?php if($level == 1 || $level == 2 ) : ?>
-        <h5>Check-in</h5><br>
+        <h5>Check-out</h5><br>
         <form method="POST" style="display: flex; justify-content:left; margin-top: -15px">
             <input type="text" class="form-control" style="width: 350px" placeholder="Número da reserva">
             <button id="submit" type="submit" class="text-center button" style="width: 70px; margin-top: -2px; margin-left: 5px">

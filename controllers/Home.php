@@ -11,6 +11,27 @@
     $info = new stdClass();
     $info->nome = "Paulo";
 
-    if(isset($_POST['function']))
-        echo 1;
+    if(isset($_POST['data'])){
+        $frame = $_POST['data'];
+        switch($frame){
+            case "home": 
+                include "../frames/home/home.php";
+            break;
+            case "checkin": 
+                include "../frames/checkin/checkin.php";
+            break;
+            case "checkout": 
+                include "../frames/checkout/checkout.php";
+            break;
+            case "reservas": 
+                include "../frames/reservas/reservas.php";
+            break;
+            case "quartos": 
+                include "../frames/quartos/quartos.php";
+            break;
+            case "cadHospedes": 
+                include "../frames/cadHospedes/cadHospedes.php";
+            break;
+        }
+    }
 ?>

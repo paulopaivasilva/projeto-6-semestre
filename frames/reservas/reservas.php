@@ -1,6 +1,15 @@
 <?php
-    $level = 1
+    $level = 2
 ?>
+<style>
+    .box {
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between; 
+        border:1px solid black;
+        height: 40px
+    } 
+</style>
 <h5>Nova reserva</h5><br>
 <?php if($level == 0) : ?>
     <div class="content text-center">
@@ -37,9 +46,19 @@
         </div>
     </div>
 <?php endif; ?>
-
 <?php if($level == 2) : ?>
-
+    <h5>Hóspedes</h5>
+    <div class="box">
+        <span style="margin-top: 5px; margin-left: 4px">Daniela Ferreiraaaaa</span>
+        <div style="margin-top: -22px">
+            <button type="submit" class="text-center button" style="width: 80px; height: 30px">
+                <span style="margin-left: 2px;font-size: 12px">Selecionar</span>
+            </button>
+            <button type="submit" class="text-center button" style="width: 125px; height: 30px; margin-right: 4px">
+                <span style="margin-left: 2px;font-size: 12px">Visualizar Cadastro</span>
+            </button>
+        </div>
+    </div>
 <?php endif; ?>
 
 <?php if($level == 3) : ?>

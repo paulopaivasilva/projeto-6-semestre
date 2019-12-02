@@ -1,7 +1,7 @@
 <!doctype html>
 <?php
     include "./controllers/Home.php";
-    $frame = "reservas"
+    $frame = "checkout";
 ?>
 <html lang="en">
     <?= $head ?>
@@ -27,47 +27,40 @@
             </div>
             <div class="row">
                 <div class="col-md-3 text-left" style="margin-left: 15px">
-                    <button class="text-left button">
+                    <button onclick="changeFrame('checkin')" class="text-left button" id="checkin">
                         <span>Check-in</span>
                     </button>
-                    <button class="text-left button">
+                    <button onclick="changeFrame('checkout')" class="text-left button">
                         <span>Check-out</span>
                     </button>
-                    <button class="text-left button">
+                    <button onclick="changeFrame('reservas')" class="text-left button">
                         <span>Reservas</span>
                     </button>
-                    <button class="text-left button">
+                    <button onclick="changeFrame('quartos')" class="text-left button">
                         <span>Quartos</span>
                     </button>
-                    <button class="text-left button">
+                    <button onclick="changeFrame('hospedes')" class="text-left button">
                         <span>Cadastro de Hóspedes</span>
                     </button>
                 </div>
-                <div class="col-md-8 text-left">
-                    <?php  
-                        switch($frame){
-                            case "home": 
-                                include "./frames/home/home.php";
-                            break;
-                            case "checkin": 
-                                include "./frames/checkin/checkin.php";
-                            break;
-                            case "checkout": 
-                                include "./frames/checkout/checkout.php";
-                            break;
-                            case "reservas": 
-                                include "./frames/reservas/reservas.php";
-                            break;
-                            case "quartos": 
-                                include "./frames/quartos/quartos.php";
-                            break;
-                            case "cadHospedes": 
-                                include "./frames/cadHospedes/cadHospedes.php";
-                            break;
-                        }
-                    ?>
+                <div class="col-md-8 text-left" id="frame">
+                    
                 </div>
             </div>
         </div>
     </body>
 </html>
+<script>
+    const changeFrame = (val) => {
+        var dados = 'data=' + val
+        $.ajax({
+            method:'POST',
+            url:"./controllers/Home.php",
+            data: dados,
+            success: (resp) => {
+                console.log(resp)
+                $('#frame').html(resp)
+            }
+        })
+    }
+</script>
