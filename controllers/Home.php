@@ -29,10 +29,10 @@
                 include "../frames/reservas/reservas.html";
             break;
             case "quartos": 
-                include "../frames/quartos/quartos.php";
+                include "../frames/quartos/quartos.html";
             break;
-            case "cadHospedes": 
-                include "../frames/cadHospedes/cadHospedes.php";
+            case "hospedes": 
+                include "../frames/cadHospedes/cadHospedes.html";
             break;
         }
     }

@@ -18,7 +18,7 @@
         inner join quartos q on q.id_quarto = r.id_quarto
         inner join TipoQuarto tq on tq.idTipoQuarto = q.IDTipoQuarto
         inner join StatusReserva sr on r.status_reserva = sr.id
-        where  r.id_reserva = 1
+        where  r.id_reserva = $busca
         and r.status_reserva in (3)
         ";
         $resultado = mysqli_query($connect, $sql);
