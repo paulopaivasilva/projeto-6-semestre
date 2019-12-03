@@ -9,10 +9,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <title>Login</title>
     </head>
-    <body class="text-center">
+    <body class="text-center" style="background-color: #f5f5f5">
         <form class="form-signin" action="./controllers/Login.php" method="POST" id="formLogin">
             <h1 class="h2 mb-3 font-weight-normal" style="color: #707070">Mercurys Hotel</h1>
-            <input type="text" name="email" id="email" class="form-control" style="background-color: #595573; color: white" placeholder="ID" required autofocus>
+            <input type="number" name="id" class="form-control" style="background-color: #595573; color: white" placeholder="ID" required autofocus>
             <input type="password" name="senha" id="senha" class="form-control" style="background-color: #595573; color: white" placeholder="Senha" required>
             <button class="btn" id="submit">Entrar</button>
         </form>

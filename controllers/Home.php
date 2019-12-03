@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $head = '<head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,7 +10,7 @@
         <title>Home</title>
     </head>';
     $info = new stdClass();
-    $info->nome = "Paulo";
+    $info->nome = $_SESSION['nome'];
 
     if(isset($_POST['data'])){
         $frame = $_POST['data'];
@@ -33,5 +34,9 @@
                 include "../frames/cadHospedes/cadHospedes.php";
             break;
         }
+    }
+
+    if(isset($_POST['sair'])){
+        session_destroy();
     }
 ?>

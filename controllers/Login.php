@@ -1,10 +1,16 @@
 <?php
-    $email = $_POST['email'];
+    $id = $_POST['id'];
     $senha = $_POST['senha'];
 
-    if($email && $senha == 1){
+    $connect = mysqli_connect('br796.hostgator.com.br', 'progr740_aps', 'Unip2019');
+    $db = mysqli_select_db($connect, 'progr740_hotel');
+    $resultado = mysqli_query($connect, "SELECT nome FROM usuarios WHERE id_usuario='$id' AND senha='$senha'");
+    if(mysqli_num_rows($resultado) > 0){
+        $res = mysqli_fetch_array($resultado);
+        session_start();
+        $_SESSION['nome'] = $res['nome'];
         header('Location: ../home.php');
     }else{
-        echo 1;
+        echo "<script>console.log('Login/senha inválido')<script>";
     }
 ?>

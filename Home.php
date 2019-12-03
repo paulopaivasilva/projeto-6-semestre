@@ -14,7 +14,7 @@
                 <div class="col-md-6 text-right">
                     <h6 class="margin-r20" style="margin-top: 15px">
                         <span style="margin-right: 20px">Bem-vindo <?= $info->nome ?>!</span>
-                        <button class="btn" style="margin-top: -5px">
+                        <button onclick="sair()" class="btn" style="margin-top: -5px">
                             <strong>Sair</strong>
                         </button>
                     </h6>
@@ -51,7 +51,7 @@
     </body>
 </html>
 <script>
-    const changeFrame = (val) => {
+    function changeFrame(val){
         var dados = 'data=' + val
         $.ajax({
             method:'POST',
@@ -59,6 +59,18 @@
             data: dados,
             success: (resp) => {
                 $('#frame').html(resp)
+            }
+        })
+    }
+
+    function sair(){
+        var sair = 'sair=true'
+        $.ajax({
+            method:'POST',
+            url:"./controllers/Home.php",
+            data: sair,
+            success: (resp) => {
+                location.href = 'login.html'
             }
         })
     }
