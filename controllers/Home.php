@@ -15,16 +15,16 @@
         $frame = $_POST['data'];
         switch($frame){
             case "home": 
-                include "../frames/home/home.php";
+                echo '';
             break;
             case "checkin": 
-                include "../frames/checkin/checkin.php";
+                include "../frames/checkin/checkin.html";
             break;
             case "checkout": 
-                include "../frames/checkout/checkout.php";
+                include "../frames/checkout/checkout.html";
             break;
             case "reservas": 
-                include "../frames/reservas/reservas.php";
+                include "../frames/reservas/reservas.html";
             break;
             case "quartos": 
                 include "../frames/quartos/quartos.php";

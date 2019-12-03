@@ -1,0 +1,73 @@
+<div class="content text-left">
+    <h5>Check-out</h5><br>
+    <form method="POST" style="display: flex; justify-content:left; margin-top: -15px; display: none;" id="nivelCheckout1">
+        <input type="text" class="form-control" style="width: 350px" placeholder="Número da reserva">
+        <button onclick="changeCheckout(2)" type="button" class="text-center button"
+            style="width: 70px; margin-top: -2px; margin-left: 5px">
+            <span style="margin-right: 10px;">Ok</span>
+        </button>
+    </form>
+    <div style="display: none;" id="nivelCheckout2">
+        <h5 style="margin-top: 30px">Dados da Reserva</h5>
+        <div class="row" style="margin-top: 30px">
+            <div class="col-md-5 text-left" style="line-height: 12px">
+                <p><strong>Nome: </strong>Daniela Ferreira</p>
+                <p><strong>Tipo Documento: </strong>CPF</p>
+                <p><strong>Documento: </strong>569.768.389-88</p>
+                <p><strong>Data da Reserva: </strong>01/01/2019</p>
+                <p><strong>Estadia: </strong>De 03/10 a 15/10</p>
+                <p><strong>Tipo Quarto: </strong>Standart</p>
+                <p><strong>Nº Quarto: </strong>20</p>
+            </div>
+            <div class="col-md-7">
+                <h5>Observações</h5>
+                <textarea class="form-control" id="exampleFormControlTextarea1" readonly rows="4"></textarea>
+                <div class="col-md-12" style="margin-left: -15px; margin-top: 2%">
+                    <button onclick="changeCheckout(3)" class="text-center button" style="width: 200px;">
+                        <span style="margin-right: 10px;">Confirmar check-out</span>
+                    </button>
+                    <button onclick="changeCheckout(1)" class="text-center button" style="width: 200px;">
+                        <span style="margin-right: 10px;">Cancelar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="nivelCheckout0" class="text-center" style="margin-top: 10%;">
+        <h5>Atenção!</h5>
+        <h5>Solicitar a devolução da chave.</h5>
+        <button type="button" onclick="changeCheckout(1)" class="text-center button" style="width: 200px;">
+            <span style="margin-right: 10px;">Continuar check-out</span>
+        </button>
+    </div>
+    <div class="text-center" id="nivelCheckout3" style="margin-top: 10%; display: none;">
+        <h5>Checkout confirmado!</h5>
+        <h5>Agradeça a preferência do hóspede.</h5>
+        <button onclick="changeCheckout(0)" class="text-center button" style="width: 200px;">
+            <span style="margin-right: 10px;">Menu Principal</span>
+        </button>
+    </div>
+</div>
+<script>
+    function changeCheckout(val){
+        if(val == 0) {
+            $('#nivelCheckout0').show();
+            $('#nivelCheckout1').hide();
+            $('#nivelCheckout2').hide();
+            $('#nivelCheckout3').hide();
+        }
+        if(val == 1){
+            $('#nivelCheckout0').hide();
+            $('#nivelCheckout1').show();
+            $('#nivelCheckout2').hide();
+        }
+        if(val == 2){
+            $('#nivelCheckout2').show();
+        }
+        if(val == 3){
+            $('#nivelCheckout1').hide();
+            $('#nivelCheckout2').hide();
+            $('#nivelCheckout3').show();
+        }
+    }
+</script>

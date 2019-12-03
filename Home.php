@@ -58,7 +58,6 @@
             url:"./controllers/Home.php",
             data: dados,
             success: (resp) => {
-                console.log(resp)
                 $('#frame').html(resp)
             }
         })
