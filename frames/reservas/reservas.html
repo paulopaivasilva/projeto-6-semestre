@@ -4,8 +4,12 @@
         flex-direction: row; 
         justify-content: space-between; 
         border:1px solid black;
-        height: 40px
-    } 
+    }
+    .box1 {
+        margin-top: 15px;
+        border:1px solid black;
+        line-height: 12px;
+    }
 </style>
 <div id="nivelReserva0">
     <h5>Reserva</h5><br>
@@ -14,10 +18,10 @@
             <button onclick="changeReservas(1)" class="text-center button" style="width: 200px; margin-right: 20px">
                 <span style="margin-right: 10px;">Nova reserva</span>
             </button>
-            <button class="text-center button" style="width: 200px; margin-right: 20px">
+            <button onclick="changeReservas(5)" class="text-center button" style="width: 200px; margin-right: 20px">
                 <span style="margin-right: 10px;">Consultar reserva</span>
             </button>
-            <button class="text-center button" style="width: 200px;">
+            <button onclick="changeReservas(7)" class="text-center button" style="width: 200px;">
                 <span style="margin-right: 10px;">Cancelar reserva</span>
             </button>
         </div>
@@ -67,9 +71,7 @@
         <div class="row">
             <div class="col-md-6">
                 <label class="margin-top">Data Check-in</label>
-                <input type="date" id="checkin" class="form-control" placeholder="Data Check-in">
-
-                <label class="margin-top">Quantidade de hóspedes</label>
+                <input readonly type="date" id="checkin" class="form-control" placeholder="Data Check-in">
                 <input type="number" id="qtdHosp" class="form-control margin-top" placeholder="Qtde Hóspedes">
 
                 <select class="form-control margin-top" id="tpQuarto">
@@ -78,13 +80,12 @@
                     <option value="2">Master</option>
                     <option value="3">Master Superior</option>
                 </select>
-                <label class="margin-top">Quarto</label>
-                <input type="text" id="quarto" class="form-control">
-                <button class="button" style="margin-top: -2px; font-size: 12; width: 100px">Consultar</button>
+                <input type="text" id="quarto" class="form-control" placeholder="Quarto" style="margin-top: 10px">
+                <button onclick="consultarQuarto()" class="button" style="margin-top: -2px; font-size: 12; width: 100px">Consultar</button>
             </div>
             <div class="col-md-6 text-left">
                 <label class="margin-top">Data Check-out</label>
-                <input type="date" id="checkout" class="form-control" placeholder="Data Check-in">
+                <input readonly type="date" id="checkout" class="form-control" placeholder="Data Check-in">
             </div>
         </div>
         <div class="col-md-12 text-right">
@@ -93,8 +94,74 @@
     </div>
 </div>
 <div class="text-center" id="nivelReserva4" style="margin-top: 10%; display: none;">
-    <h5>Reserva confirmada!</h5>
-    <h5>Reserva nº <span id="idReserva"></span></h5>
+    <h5 id="statusReserva">Reserva confirmada!</h5>
+    <button onclick="changeReservas(0)" class="text-center button" style="width: 200px;">
+        <span style="margin-right: 10px;">Menu Principal</span>
+    </button>
+</div>
+<div class="content text-center" id="nivelReserva5" style="display: none; margin-top: 6%">
+    <div class="row">
+        <div class="col-md-12 text-center" style="display: flex; justify-content:center; margin-top: 5%">
+            <input type="text" id="reservaBusca" class="form-control" style="width: 350px" placeholder="Número da Reserva">
+        </div>
+        <div class="col-md-12">
+            <button onclick="consultaReserva(6)" type="button" class="text-center button" style="width: 150px;">
+                <span style="margin-right: 10px;">Ok</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div id="nivelReserva6" style="display: none;">
+    <h5>Consultar Reserva</h5>
+    <div class="box1">
+        <p style="margin-top: 5px;">Reserva: <span id="consultaReserva"></span></p>
+        <p>Hóspede: <span id="consultaHospede"></span></p>
+        <p>CPF: <span id="consultaCPF"></span></p>
+        <p>Data Check-in: <span id="consultaCheckin"></span></p>
+        <p>Data Check-out: <span id="consultaCheckout"></span></p>
+        <p>Tipo Quarto: <span id="consultaTpQuarto"></span></p>
+        <p>Quarto: <span id="consultaQuarto"></span></p>
+        <div class="col-md-12 text-right">
+            <button onclick="changeReservas(0)" class="text-center button" style="width: 80px; height: 30px">
+                <span style="margin-left: 2px;font-size: 12px">Voltar</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="content text-center" id="nivelReserva7" style="display: none; margin-top: 6%">
+    <div class="row">
+        <div class="col-md-12 text-center" style="display: flex; justify-content:center; margin-top: 5%">
+            <input type="text" id="reservaCancela" class="form-control" style="width: 350px" placeholder="Número da Reserva">
+        </div>
+        <div class="col-md-12">
+            <button onclick="consultaReserva(8)" type="button" class="text-center button" style="width: 150px;">
+                <span style="margin-right: 10px;">Ok</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div id="nivelReserva8" style="display: none;">
+    <h5>Cancelar Reserva</h5>
+    <div class="box1">
+        <p style="margin-top: 5px;">Reserva: <span id="cancelaReserva"></span></p>
+        <p>Hóspede: <span id="cancelaHospede"></span></p>
+        <p>CPF: <span id="cancelaCPF"></span></p>
+        <p>Data Check-in: <span id="cancelaCheckin"></span></p>
+        <p>Data Check-out: <span id="cancelaCheckout"></span></p>
+        <p>Tipo Quarto: <span id="cancelaTpQuarto"></span></p>
+        <p>Quarto: <span id="cancelaQuarto"></span></p>
+        <div class="col-md-12 text-right">
+            <button onclick="changeReservas(0)" class="text-center button" style="width: 80px; height: 30px">
+                <span style="margin-left: 2px;font-size: 12px">Voltar</span>
+            </button>
+            <button onclick="cancelarReserva(9)" class="text-center button" style="width: 150px; height: 30px">
+                <span style="margin-left: 2px;font-size: 12px">Confirmar Cancelamento</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="text-center" id="nivelReserva9" style="margin-top: 10%; display: none;">
+    <h5 id="statusCancela"></h5>
     <button onclick="changeReservas(0)" class="text-center button" style="width: 200px;">
         <span style="margin-right: 10px;">Menu Principal</span>
     </button>
