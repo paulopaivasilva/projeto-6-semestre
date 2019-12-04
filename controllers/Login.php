@@ -9,8 +9,8 @@
         $res = mysqli_fetch_array($resultado);
         session_start();
         $_SESSION['nome'] = $res['nome'];
-        header('Location: ../home.php');
+        echo 1;
     }else{
-        echo "<script>console.log('Login/senha inválido')<script>";
+        echo "Login/senha inválido";
     }
 ?>
