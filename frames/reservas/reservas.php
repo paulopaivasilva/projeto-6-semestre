@@ -25,14 +25,21 @@
         $tpQuarto = $_POST['tpQuarto'];
         $checkout = $_POST['checkout'];
         $id_usuario = 1000;
+        $id_reserva = '';
 
         $sql = "INSERT INTO reservas (id_hospede, dt_reserva, dt_checkin, dt_checkout, id_quarto, id_usuario, status_reserva)
         values($id_hospede,now(),null,null,$quarto,$id_usuario,1)";
-
         $sql2 = "UPDATE `progr740_hotel`.`quartos` SET `status_quarto` = 'Ocupado' WHERE (`id_quarto` = '$quarto')";
+        $sql3 = "SELECT id_reserva FROM reservas WHERE id_hospede = $id_hospede ORDER BY id_reserva DESC LIMIT 1";
         $resultado = mysqli_query($connect, $sql);
         $resultado2 = mysqli_query($connect, $sql2);
-        echo "Reserva confirmada!";
+        $resultado3 = mysqli_query($connect, $sql3);
+        if(mysqli_num_rows($resultado3) > 0){
+            $res = mysqli_fetch_array($resultado3);
+            $id_reserva = $res['id_reserva'];
+
+            echo $id_reserva;
+        }
     }
 
     if(isset($_POST['consultaQuarto'])){
