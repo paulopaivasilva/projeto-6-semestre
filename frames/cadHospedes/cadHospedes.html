@@ -1,1 +1,102 @@
-cadHospedes
+<style>
+    .box {
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between; 
+        border:1px solid black;
+        height: 40px
+    } 
+</style>
+<!--<div id="nivelcadHospedes0">
+    <h5>Cadastro Hóspede</h5><br>
+    <div class="content text-center">
+        <div style="display: flex; justify-content:center; margin-top: 12%">
+            <button class="text-center button" style="width: 200px; margin-right: 20px">
+                <span style="margin-right: 10px;">Novo Cadastro</span>
+            </button>
+            <button class="text-center button" style="width: 200px; margin-right: 20px">
+                <span style="margin-right: 10px;">Consultar Cadastro</span>
+            </button>
+        </div>
+    </div>
+</div>-->
+<div id="nivelcadHospedes1">
+    <h5>Novo Cadastro</h5><br>
+    <div class="row">
+        <div class="col-md-5" style="display: flex; justify-content:left; margin-top: 1%">
+            <input type="number" id="cpfHospede" class="form-control" style="width: 300px" placeholder="CPF">
+        </div>
+        <div class="col-md-7" style="display: flex; justify-content:left; margin-top: 1%">
+            <input type="text" id="nomeHospede" class="form-control" style="width: 550px" placeholder="Nome Completo">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="number" id="nascHospede" class="form-control" style="width: 200px" placeholder="Data Nascimento">
+        </div>
+        <div class="col-md-2" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="number" id="idadeHospede" class="form-control" style="width: 100px" placeholder="Idade">
+        </div>
+        <div class="col-md-2" style="display: flex; justify-content:left; margin-top: 3%">
+            <!-- <input type="text" id="sexoHospede" class="form-control" style="width: 100px" placeholder="Sexo"> -->
+            <select id="sexoHospede" class="form-control margin-top">
+                <option value="" selected>Sexo</option>
+                <option value="m">Masculino</option> 
+                <option value="f">Feminino</option>
+                <option value="f">Outros</option>
+            </select>
+        </div>
+        <div class="col-md-5" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="text" id="profissHospede" class="form-control" style="width: 350px" placeholder="Profissão">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="number" id="cepHospede" class="form-control" style="width: 200px" placeholder="CEP">
+        </div>
+        <div class="col-md-9" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="text" id="endHospede" class="form-control" style="width: 700px" placeholder="Endereço">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="number" id="numEndHospede" class="form-control" style="width: 60px" placeholder="Nº">
+        </div>
+        <div class="col-md-3" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="text" id="complHospede" class="form-control" style="width: 300px" placeholder="Complemento">
+        </div>
+        <div class="col-md-3" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="text" id="bairroHospede" class="form-control" style="width: 400px" placeholder="Bairro">
+        </div>
+        <div class="col-md-3" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="text" id="cidadeHospede" class="form-control" style="width: 400px" placeholder="Cidade">
+        </div>
+        <div class="col-md-1" style="display: flex; justify-content:left; margin-top: 3%">
+            <!-- <input type="text" id="ufHospede" class="form-control" style="width: 80px" placeholder="UF"> -->
+            <select id="ufHospede" class="form-control margin-top" style="width: 80px">
+                <option value="UF" selected>UF</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="text" id="emailHospede" class="form-control" style="width: 700px" placeholder="E-mail">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="number" id="tel1Hospede" class="form-control" style="width: 400px" placeholder="Telefone 1">
+        </div>
+        <div class="col-md-5" style="display: flex; justify-content:left; margin-top: 3%">
+            <input type="number" id="tel2Hospede" class="form-control" style="width: 400px" placeholder="Telefone 2">
+        </div>
+        <div class="col-md-12 text-right">
+            <button class="text-center button" style="width: 100px; height: 40px">
+                <span style="margin-left: 2px;font-size: 15px">Voltar</span>
+            </button>
+            <button onclick="ui()" class="text-center button" style="width: 100px; height: 40px">
+                <span style="margin-left: 2px;font-size: 15px">Concluir</span>
+            </button>
+        </div>
+    </div>
+    <script src="frames/cadHospedes/cadHospedes.js"></script>
