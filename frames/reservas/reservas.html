@@ -29,7 +29,7 @@
             <input type="text" id="cpfReserva" class="form-control" style="width: 350px" placeholder="CPF Hóspede">
         </div>
         <div class="col-md-12">
-            <button onclick="buscaHospede(2)" class="text-center button" style="width: 150px;">
+            <button onclick="buscaHospede()" class="text-center button" style="width: 150px;">
                 <span style="margin-right: 10px;">Consultar</span>
             </button>
         </div>
@@ -43,7 +43,7 @@
 <div id="nivelReserva2" style="display: none;">
     <h5>Hóspedes</h5>
     <div class="box">
-        <span style="margin-top: 5px; margin-left: 4px">Daniela Ferreira</span>
+        <span style="margin-top: 5px; margin-left: 4px" id="nomeHospede"></span>
         <div style="margin-top: -22px">
             <button onclick="changeReservas(3)" class="text-center button" style="width: 80px; height: 30px">
                 <span style="margin-left: 2px;font-size: 12px">Selecionar</span>
@@ -62,34 +62,33 @@
     </style>
     <h5>Hóspedes</h5>
     <div>
-        <span style="margin-top: 5px; margin-left: 4px">Daniela Ferreira</span>
+        <span style="margin-top: 5px; margin-left: 4px" id="nomeHospede">Daniela Ferreira</span>
         <h5>Dados Reserva</h5>
         <div class="row">
             <div class="col-md-6">
                 <label class="margin-top">Data Check-in</label>
-                <input type="date" class="form-control" placeholder="Data Check-in">
+                <input type="date" id="checkin" class="form-control" placeholder="Data Check-in">
 
                 <label class="margin-top">Quantidade de hóspedes</label>
-                <input type="number" class="form-control margin-top" placeholder="Qtde Hóspedes">
+                <input type="number" id="qtdHosp" class="form-control margin-top" placeholder="Qtde Hóspedes">
 
-                <label class="margin-top">Data Check-in</label>
-                <select class="form-control margin-top">
+                <select class="form-control margin-top" id="tpQuarto">
                     <option value="" selected>Tipo de quarto</option>
                     <option value="1">Standard</option> 
                     <option value="2">Master</option>
                     <option value="3">Master Superior</option>
                 </select>
                 <label class="margin-top">Quarto</label>
-                <input type="text" class="form-control">
+                <input type="text" id="quarto" class="form-control">
                 <button class="button" style="margin-top: -2px; font-size: 12; width: 100px">Consultar</button>
             </div>
             <div class="col-md-6 text-left">
                 <label class="margin-top">Data Check-out</label>
-                <input type="date" class="form-control" placeholder="Data Check-in">
+                <input type="date" id="checkout" class="form-control" placeholder="Data Check-in">
             </div>
         </div>
         <div class="col-md-12 text-right">
-            <button onclick="changeReservas(4)" type="button" class="button" style="margin-top: -2px; font-size: 12; margin-bottom: 10px;">Confirmar Reserva</button>
+            <button onclick="novaReserva(4)" type="button" class="button" style="margin-top: -2px; font-size: 12; margin-bottom: 10px;">Confirmar Reserva</button>
         </div>
     </div>
 </div>
